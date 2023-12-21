@@ -7,11 +7,14 @@ export const useTrendingMovies = () => {
     const getTrending = async () => {
       try {
         await axios
-          .get("https://api.themoviedb.org/3/trending/movie/week?API", {
-            headers: {
-              accept: "application/json",
-            },
-          })
+          .get(
+            "https://api.themoviedb.org/3/trending/movie/week?api_key=73ca2a6e8a948ec1b2938001838a6713",
+            {
+              headers: {
+                accept: "application/json",
+              },
+            }
+          )
           .then((res) => {
             setTrendingMovies(res.data);
           });
@@ -31,11 +34,14 @@ export const useMovieDetails = (id) => {
     const getDetails = async () => {
       try {
         await axios
-          .get(`https://api.themoviedb.org/3/movie/${id}?API`, {
-            headers: {
-              accept: "application/json",
-            },
-          })
+          .get(
+            `https://api.themoviedb.org/3/movie/${id}?api_key=73ca2a6e8a948ec1b2938001838a6713`,
+            {
+              headers: {
+                accept: "application/json",
+              },
+            }
+          )
           .then((res) => {
             // console.log(res.data);
             setMovieDetails(res.data);
